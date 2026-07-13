@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dental Vibe</title></title>
+<title>Dental Vibe</title>
 
 <style>
 /* RESET & FONTS GLOBAL */
@@ -216,7 +216,8 @@ header{
   gap: 8px;
 }
 
- .hidden{
+/* JADWAL PRAKTIK DOKTER (toggle konten, gak pindah page) */
+.hidden{
   display: none !important;
 }
 
@@ -264,8 +265,6 @@ header{
   max-width: 280px;
   margin: 28px auto 0;
 }
-
-
 
 /* FOOTER SECTION & KONTEN BAWAH (Ganti item pekat jadi Earth Tone Gelap Mulus) */
 .footer-section {
@@ -341,7 +340,7 @@ header{
     flex-direction: row;
   }
 
-.schedule-row{
+  .schedule-row{
     grid-template-columns: 2fr 1fr 1fr;
     align-items: center;
     padding: 16px 24px;
@@ -357,7 +356,7 @@ header{
     color: #F8F9Fa;
     font-weight: 700;
   }
-  
+}
 </style>
 </head>
 
@@ -372,8 +371,8 @@ header{
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
     <nav id="menu">
-      <a href="#menu-section">Layanan</a>
-       <a href="#jadwal-section" onclick="showJadwal(event)">Jadwal Praktik Dokter</a>
+      <a href="#menu-section" onclick="showLayanan(event)">Layanan</a>
+      <a href="#jadwal-section" onclick="showJadwal(event)">Jadwal Praktik Dokter</a>
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
       <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-primary">Shop Now</a>
@@ -436,6 +435,7 @@ header{
           <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-wa">Konsultasi Via WhatsApp</a>
         </div>
       </div>
+    </div>
   </div>
 </section>
 
@@ -475,7 +475,8 @@ header{
     </div>
   </div>
 </section>
-  
+
+
 <!-- FOOTER WRAPPER (Menyatukan section bawah biar warnanya konsisten) -->
 <footer class="footer-section">
   
@@ -511,20 +512,21 @@ function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 
- function showJadwal(e){
+// Klik "Jadwal Praktik Dokter": card Layanan disembunyikan, section jadwal muncul. Hero & footer tetap tampil.
+function showJadwal(e){
   e.preventDefault();
   document.getElementById("menu-section").classList.add("hidden");
   document.getElementById("jadwal-section").classList.remove("hidden");
   document.getElementById("jadwal-section").scrollIntoView({behavior:"smooth"});
 }
 
+// Klik "Layanan": balik lagi ke tampilan card, section jadwal disembunyikan
 function showLayanan(e){
   e.preventDefault();
   document.getElementById("jadwal-section").classList.add("hidden");
   document.getElementById("menu-section").classList.remove("hidden");
   document.getElementById("menu-section").scrollIntoView({behavior:"smooth"});
 }
-
 
 // Tambahan auto-close menu pas link di klik di mobile biar ga nutupin konten
 document.querySelectorAll('#menu a').forEach(link => {
