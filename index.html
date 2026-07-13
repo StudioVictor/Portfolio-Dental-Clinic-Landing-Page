@@ -305,6 +305,7 @@ header{
 
     <nav id="menu">
       <a href="#menu-section">Layanan</a>
+       <a href="#jadwal-section" onclick="showJadwal(event)">Jadwal Praktik Dokter</a>
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
       <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-primary">Shop Now</a>
@@ -370,7 +371,43 @@ header{
   </div>
 </section>
 
+<!-- JADWAL PRAKTIK DOKTER (default hidden, muncul gantiin Layanan pas diklik dari menu) -->
+<section class="products hidden" id="jadwal-section">
+  <div class="container">
+    <h2>Jadwal Praktik Dokter</h2>
 
+    <div class="schedule-table">
+      <div class="schedule-row schedule-head">
+        <div>Dokter</div>
+        <div>Hari Praktik</div>
+        <div>Jam Praktik</div>
+      </div>
+
+      <div class="schedule-row">
+        <div>drg. Aditya Pratama</div>
+        <div>Senin - Jumat</div>
+        <div>09.00 - 15.00</div>
+      </div>
+
+      <div class="schedule-row">
+        <div>drg. Bella Anastasya, Sp.Ortho</div>
+        <div>Selasa &amp; Kamis</div>
+        <div>13.00 - 20.00</div>
+      </div>
+
+      <div class="schedule-row">
+        <div>drg. Citra Wulandari</div>
+        <div>Sabtu - Minggu</div>
+        <div>10.00 - 18.00</div>
+      </div>
+    </div>
+
+    <div class="action-buttons schedule-cta">
+      <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-wa">Booking Jadwal Via WhatsApp</a>
+    </div>
+  </div>
+</section>
+  
 <!-- FOOTER WRAPPER (Menyatukan section bawah biar warnanya konsisten) -->
 <footer class="footer-section">
   
