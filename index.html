@@ -239,12 +239,32 @@ header{
   box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
-.schedule-row div:nth-child(1){ font-weight: 700; color: #2c2c2c; font-size: 16px; }
-.schedule-row div:nth-child(2){ color: #f29d8d; font-weight: 600; font-size: 14px; }
-.schedule-row div:nth-child(3){ color: #666666; font-size: 14px; }
+.schedule-row div:nth-child(1){
+  font-weight: 700;
+  color: #2c2c2c;
+  font-size: 16px;
+}
 
-.schedule-head{ display: none; }
-.schedule-cta{ max-width: 280px; margin: 28px auto 0; }
+.schedule-row div:nth-child(2){
+  color: #f29d8d;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.schedule-row div:nth-child(3){
+  color: #666666;
+  font-size: 14px;
+}
+
+.schedule-head{
+  display: none;
+}
+
+.schedule-cta{
+  max-width: 280px;
+  margin: 28px auto 0;
+}
+
 
 
 /* FOOTER SECTION & KONTEN BAWAH (Ganti item pekat jadi Earth Tone Gelap Mulus) */
@@ -321,11 +341,23 @@ header{
     flex-direction: row;
   }
 
-.schedule-row{ grid-template-columns: 2fr 1fr 1fr; align-items: center; padding: 16px 24px; }
-.schedule-head{ display: grid; background: #0b3056; box-shadow: none; }
-.schedule-head div{ color: #F8F9Fa; font-weight: 700; }
+.schedule-row{
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    padding: 16px 24px;
+  }
+
+  .schedule-head{
+    display: grid;
+    background: #0b3056;
+    box-shadow: none;
+  }
+
+  .schedule-head div{
+    color: #F8F9Fa;
+    font-weight: 700;
+  }
   
-}
 </style>
 </head>
 
@@ -491,7 +523,8 @@ function showLayanan(e){
   document.getElementById("jadwal-section").classList.add("hidden");
   document.getElementById("menu-section").classList.remove("hidden");
   document.getElementById("menu-section").scrollIntoView({behavior:"smooth"});
-} 
+}
+
 
 // Tambahan auto-close menu pas link di klik di mobile biar ga nutupin konten
 document.querySelectorAll('#menu a').forEach(link => {
