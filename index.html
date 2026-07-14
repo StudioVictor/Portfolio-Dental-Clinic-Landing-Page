@@ -542,51 +542,37 @@ function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 
-// Klik "Jadwal Praktik Dokter": card Layanan disembunyikan, section jadwal muncul. Hero & footer tetap tampil.
-function showJadwal(e){
-  e.preventDefault();
+// Satu fungsi helper untuk handle semua toggle
+function switchSection(sectionToShow) {
+  // Hide semua content sections
   document.getElementById("menu-section").classList.add("hidden");
-  document.getElementById("jadwal-section").classList.remove("hidden");
-  document.getElementById("jadwal-section").scrollIntoView({behavior:"smooth"});
+  document.getElementById("jadwal-section").classList.add("hidden");
+  document.getElementById("cabang-section").classList.add("hidden");
+  
+  // Show section yang diminta
+  document.getElementById(sectionToShow).classList.remove("hidden");
+  
+  // Scroll ke section itu
+  document.getElementById(sectionToShow).scrollIntoView({behavior:"smooth"});
 }
 
-// Klik "Layanan": balik lagi ke tampilan card, section jadwal disembunyikan
+// Event listener untuk menu links
 function showLayanan(e){
   e.preventDefault();
-  document.getElementById("jadwal-section").classList.add("hidden");
-  document.getElementById("menu-section").classList.remove("hidden");
-  document.getElementById("menu-section").scrollIntoView({behavior:"smooth"});
+  switchSection("menu-section");
 }
 
-  function showCabang(e) {
-    e.preventDefault();
-    document.getElementById("menu-section").classList.add("hidden");
-    document.getElementById("cabang-section").classList.remove("hidden");
-    document.getElementById("cabang-section ").scrollIntoView({behavior:"smooth"});
-  }
+function showJadwal(e){
+  e.preventDefault();
+  switchSection("jadwal-section");
+}
 
-  function showLayanan(e) {
-    e.preventDefault();
-    document.getElementById("cabang-section").classList.add("hidden") ;
-    document.getElementById("menu-section").classList.remove("hidden");
-    document.getElementById("menu-section").scrollIntoView({behavior:"smooth"});
-  }
- 
-  function showJadwal(e){
+function showCabang(e){
   e.preventDefault();
-  document.getElementById("cabang-section").classList.add("hidden");
-  document.getElementById("jadwal-section").classList.remove("hidden");
-  document.getElementById("jadwal-section").scrollIntoView({behavior:"smooth"});
-  }  
- 
-  function showCabang(e){
-  e.preventDefault();
-  document.getElementById("jadwal-section").classList.add("hidden");
-  document.getElementById("cabang-section").classList.remove("hidden");
-  document.getElementById("cabang-section").scrollIntoView({behavior:"smooth"});
-  }
-  
-// Tambahan auto-close menu pas link di klik di mobile biar ga nutupin konten
+  switchSection("cabang-section");
+}
+
+// Auto-close menu di mobile setelah klik
 document.querySelectorAll('#menu a').forEach(link => {
   link.addEventListener('click', () => {
     document.getElementById("menu").classList.remove("active");
