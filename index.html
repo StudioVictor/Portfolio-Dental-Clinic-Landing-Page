@@ -373,6 +373,7 @@ header{
     <nav id="menu">
       <a href="#menu-section" onclick="showLayanan(event)">Layanan</a>
       <a href="#jadwal-section" onclick="showJadwal(event)">Jadwal Praktik Dokter</a>
+      <a href="cabang-section" onclick="showCabang(event)">Daftar Cabang</a>
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
       <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-primary">Shop Now</a>
@@ -476,6 +477,35 @@ header{
   </div>
 </section>
 
+<section class="products hidden" id="cabang-section"
+    <div class="container">
+    <h2>Daftar Cabang Klinik</h2>
+
+    <div class="schedule-row">
+      <div>Dental Vibe Gading Serpong</div>
+      <h3>Jl. Boulevard Raya Gading Serpong</h3>
+      <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-wa">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/VLG5Uy3EY2LxV3ik6" target="_blank" rel="noopener noreferrer" class="btn-primary">Lokasi</a>
+    </div>
+
+    <div class="schedule-row">
+      <div>Dental Vibe Kemang</div>
+      <h3>Jl.Kemang Raya</h3>
+      <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-wa">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/XJNM7Rb2GnubQMS46" target="_blank" rel="noopener noreferrer" class="btn-primary">Lokasi</a>
+    </div>
+
+    <div class="schedule-row">
+      <div>Dental Vibe PIK</div>
+      <h3>Jl.Garden House</h3>
+      <a href="https://wa.me/6281973958232" target="_blank" rel="noopener noreferrer" class="btn-wa">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/6T2sZ2jJY7hu656G7" target="_blank" rel="noopener noreferrer" class="btn-primary">Lokasi</a>
+    </div>
+  ></section>
+   
+
+
+
 
 <!-- FOOTER WRAPPER (Menyatukan section bawah biar warnanya konsisten) -->
 <footer class="footer-section">
@@ -528,6 +558,34 @@ function showLayanan(e){
   document.getElementById("menu-section").scrollIntoView({behavior:"smooth"});
 }
 
+  function showCabang(e) {
+    e.preventDefault();
+    document.getElementById("menu-section").classList.add("hidden");
+    document.getElementById("cabang-section").classList.remove("hidden");
+    document.getElementById("cabang-section ").scrollIntoView({behavior:"smooth"});
+  }
+
+  function showLayanan(e) {
+    e.preventDefault();
+    document.getElementById("cabang-section").classList.add("hidden") ;
+    document.getElementById("menu-section").classList.remove("hidden");
+    document.getElementById("menu-section").scrollIntoView({behavior:"smooth"});
+  }
+ 
+  function showJadwal(e){
+  e.preventDefault();
+  document.getElementById("cabang-section").classList.add("hidden");
+  document.getElementById("jadwal-section").classList.remove("hidden");
+  document.getElementById("jadwal-section").scrollIntoView({behavior:"smooth"});
+  }  
+ 
+  function showCabang(e){
+  e.preventDefault();
+  document.getElementById("jadwal-section").classList.add("hidden");
+  document.getElementById("cabang-section").classList.remove("hidden");
+  document.getElementById("cabang-section").scrollIntoView({behavior:"smooth"});
+  }
+  
 // Tambahan auto-close menu pas link di klik di mobile biar ga nutupin konten
 document.querySelectorAll('#menu a').forEach(link => {
   link.addEventListener('click', () => {
