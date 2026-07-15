@@ -445,6 +445,15 @@ header{
   <div class="container">
     <h2>Jadwal Praktik Dokter</h2>
 
+<div class="cabang-filter">
+      <button class="filter-btn active" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
+      <button class="filter-btn" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
+      <button class="filter-btn" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
+      <button class="filter-btn" data-filter="pik" onclick="filterJadwal('pik', this)">PIK</button>
+</div>
+
+    
+
     <div class="schedule-table">
       <div class="schedule-row schedule-head">
         <div>Dokter</div>
@@ -452,19 +461,25 @@ header{
         <div>Jam Praktik</div>
       </div>
 
-      <div class="schedule-row">
+      <div class="schedule-row" data-cabang="gading-serpong">
         <div>drg. Aditya Pratama</div>
         <div>Senin - Jumat</div>
         <div>09.00 - 15.00</div>
       </div>
 
-      <div class="schedule-row">
+      <div class="schedule-row" data-cabang="gading-serpong">
+        <div>drg. Budiono Setiawan </div>
+        <div>Selasa &amp; Kamis</div>
+        <div>11.00 - 17.30 </div>
+      </div>
+
+      <div class="schedule-row" data-cabang="kemang">
         <div>drg. Bella Anastasya, Sp.Ortho</div>
         <div>Selasa &amp; Kamis</div>
         <div>13.00 - 20.00</div>
       </div>
 
-      <div class="schedule-row">
+      <div class="schedule-row" data-cabang="pik">
         <div>drg. Citra Wulandari</div>
         <div>Sabtu - Minggu</div>
         <div>10.00 - 18.00</div>
@@ -570,6 +585,27 @@ function showJadwal(e){
 function showCabang(e){
   e.preventDefault();
   switchSection("cabang-section");
+}
+
+function filterJadwal(cabang, btn){
+  // Update tombol filter mana yang lagi aktif
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+
+document.querySelectorAll('#jadwal-section .schedule-row:not(.schedule-head)').forEach(row => {
+    if(cabang === 'semua' || row.dataset.cabang === cabang){
+      row.classList.remove('hidden');
+    } else {
+      row.classList.add('hidden');
+    }
+  });
+}
+
+function showJadwalForCabang(e, cabang){
+  e.preventDefault();
+  switchSection('jadwal-section');
+  const targetBtn = document.querySelector('.filter-btn[data-filter="' + cabang + '"]');
+  filterJadwal(cabang, targetBtn);
 }
 
 // Auto-close menu di mobile setelah klik
