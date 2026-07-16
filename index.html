@@ -446,10 +446,10 @@ header{
     <h2>Jadwal Praktik Dokter</h2>
 
 <div class="cabang-filter">
-      <button class="filter-btn active" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
-      <button class="filter-btn" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
-      <button class="filter-btn" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
-      <button class="filter-btn" data-filter="pik" onclick="filterJadwal('pik', this)">PIK</button>
+      <button class="btn-primary" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
+      <button class="btn-primary" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
+      <button class="btn-primary" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
+      <button class="btn-primary" data-filter="pik" onclick="filterJadwal('pik', this)">PIK</button>
 </div>
 
     
@@ -588,8 +588,8 @@ function showCabang(e){
 }
 
 function filterJadwal(cabang, btn){
-  // Update tombol filter mana yang lagi aktif
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  
+  document.querySelectorAll('.btn-secondary').forEach(b => b.classList.remove('active'));
   if(btn) btn.classList.add('active');
 
 document.querySelectorAll('#jadwal-section .schedule-row:not(.schedule-head)').forEach(row => {
@@ -604,7 +604,7 @@ document.querySelectorAll('#jadwal-section .schedule-row:not(.schedule-head)').f
 function showJadwalForCabang(e, cabang){
   e.preventDefault();
   switchSection('jadwal-section');
-  const targetBtn = document.querySelector('.filter-btn[data-filter="' + cabang + '"]');
+  const targetBtn = document.querySelector('.btn-secondary[data-filter="' + cabang + '"]');
   filterJadwal(cabang, targetBtn);
 }
 
