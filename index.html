@@ -114,6 +114,24 @@ header{
   font-weight: 600;
   transition: background 0.3s ease;
 }
+
+.btn-tertiary{
+  background: #0b3056;
+  color: #f8f9fa;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 60;
+  transition: background 0.3s ease;
+}
+
+.btn-tertiary: hover {
+  background: #5c84cc
+}
   
 .btn-wa {
   background: #25D366;
@@ -446,10 +464,10 @@ header{
     <h2>Jadwal Praktik Dokter</h2>
 
 <div class="cabang-filter">
-      <button class="btn-primary" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
-      <button class="btn-primary" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
-      <button class="btn-primary" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
-      <button class="btn-primary" data-filter="pik" onclick="filterJadwal('pik', this)">PIK</button>
+      <button class="btn-tertiary" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
+      <button class="btn-tertiary" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
+      <button class="btn-tertiary" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
+      <button class="btn-tertiary" data-filter="pik" onclick="filterJadwal('pik', this)">PIK</button>
 </div>
 
     
