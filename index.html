@@ -459,7 +459,7 @@ header{
   <div class="container">
     <h2>Jadwal Praktik Dokter</h2>
 
-<button class="cabang-filter" onclick="filterJadwal()">---CABANG---</button>
+<div class="cabang-filter">
       <button class="btn-primary" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
       <button class="btn-primary" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
       <button class="btn-primary" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
@@ -487,13 +487,14 @@ header{
         <div>11.00 - 17.30 </div>
       </div>
 
-     <div class="schedule-row" data cabang="gading-serpong">
+     <div class="schedule-row" data-cabang="gading-serpong">
        <div>drg. Yani Andini</div>
        <div>Sabtu - Minggu</div>
        <div>14.00 - 18.00</div>
      </div>
 
-      <div class="schedule-row " data cabang="kemang">
+      <div class="schedule-row 
+        " data-cabang="kemang">
         <div>drg. Rudi Santoso</div>
         <div>Senin - Jumat</div>
         <div>09.00-16.00</div>
