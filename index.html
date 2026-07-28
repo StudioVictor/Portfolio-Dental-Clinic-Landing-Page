@@ -315,6 +315,40 @@ header{
   text-align: center;
 }
 
+.filter-wrapper{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    margin:30px auto;
+    max-width:900px;
+}
+
+.filter-wrapper select{
+    width:100%;
+    padding:22px 28px;
+    font-size:20px;
+    border:none;
+    border-radius:28px;
+    background:#fff;
+    color:#0b3056;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    outline:none;
+    cursor:pointer;
+}
+
+.filter-wrapper select:focus{
+    border:2px solid #0b3056;
+}
+
+@media(max-width:768px){
+
+.filter-wrapper select{
+    font-size:18px;
+    padding:18px 22px;
+}
+
+}
+
 /* DESKTOP RESPONSIVE (Ubah layout pas layar gede) */
 @media(min-width:768px){
   .menu-btn{
@@ -459,11 +493,32 @@ header{
   <div class="container">
     <h2>Jadwal Praktik Dokter</h2>
 
-<div class="cabang-filter">
-      <button class="btn-primary" data-filter="semua" onclick="filterJadwal('semua', this)">Semua Cabang</button>
-      <button class="btn-primary" data-filter="gading-serpong" onclick="filterJadwal('gading-serpong', this)">Gading Serpong</button>
-      <button class="btn-primary" data-filter="kemang" onclick="filterJadwal('kemang', this)">Kemang</button>
-      <button class="btn-primary" data-filter="pik" onclick="filterJadwal('pik', this)">PIK</button>
+<div class="filter-wrapper">
+
+<select id="filter-spesialis" onchange="filterJadwal()">
+    <option value="semua">--- Semua Spesialis ---</option>
+    <option value="umum">Dokter Gigi Umum</option>
+    <option value="ortho">Spesialis Ortodonti</option>
+</select>
+
+<select id="filter-cabang" onchange="filterJadwal()">
+    <option value="semua">--- Semua Cabang ---</option>
+    <option value="gading-serpong">Gading Serpong</option>
+    <option value="kemang">Kemang</option>
+    <option value="pik">PIK</option>
+</select>
+
+<select id="filter-hari" onchange="filterJadwal()">
+    <option value="semua">--- Semua Jadwal ---</option>
+    <option value="senin">Senin</option>
+    <option value="selasa">Selasa</option>
+    <option value="rabu">Rabu</option>
+    <option value="kamis">Kamis</option>
+    <option value="jumat">Jumat</option>
+    <option value="sabtu">Sabtu</option>
+    <option value="minggu">Minggu</option>
+</select>
+
 </div>
 
     
@@ -474,60 +529,59 @@ header{
         <div>Hari Praktik</div>
         <div>Jam Praktik</div>
       </div>
+<div class="schedule-row" data-cabang="gading-serpong" data-spesialis="umum" data-hari="senin,selasa,rabu,kamis,jumat">
+  <div>drg. Aditya Pratama</div>
+  <div>Senin - Jumat</div>
+  <div>09.00 - 15.00</div>
+</div>
 
-      <div class="schedule-row" data-cabang="gading-serpong">
-        <div>drg. Aditya Pratama</div>
-        <div>Senin - Jumat</div>
-        <div>09.00 - 15.00</div>
-      </div>
+<div class="schedule-row" data-cabang="gading-serpong" data-spesialis="ortho" data-hari="rabu,kamis">
+  <div>drg. Budiono Setiawan</div>
+  <div>Rabu &amp; Kamis</div>
+  <div>11.00 - 17.30</div>
+</div>
 
-      <div class="schedule-row" data-cabang="gading-serpong">
-        <div>drg. Budiono Setiawan</div>
-        <div>Rabu &amp; Kamis</div>
-        <div>11.00 - 17.30 </div>
-      </div>
+<div class="schedule-row" data-cabang="gading-serpong" data-spesialis="umum" data-hari="sabtu,minggu">
+  <div>drg. Yani Andini</div>
+  <div>Sabtu - Minggu</div>
+  <div>14.00 - 18.00</div>
+</div>
 
-     <div class="schedule-row" data-cabang="gading-serpong">
-       <div>drg. Yani Andini</div>
-       <div>Sabtu - Minggu</div>
-       <div>14.00 - 18.00</div>
-     </div>
+<div class="schedule-row" data-cabang="kemang" data-spesialis="umum" data-hari="senin,selasa,rabu,kamis,jumat">
+  <div>drg. Rudi Santoso</div>
+  <div>Senin - Jumat</div>
+  <div>09.00-16.00</div>
+</div>
 
-      <div class="schedule-row" data-cabang="kemang">
-        <div>drg. Rudi Santoso</div>
-        <div>Senin - Jumat</div>
-        <div>09.00-16.00</div>
-      </div>
+<div class="schedule-row" data-cabang="kemang" data-spesialis="ortho" data-hari="selasa,kamis">
+  <div>drg. Bella Anastasya, Sp.Ortho</div>
+  <div>Selasa &amp; Kamis</div>
+  <div>13.00 - 20.00</div>
+</div>
 
-      <div class="schedule-row" data-cabang="kemang">
-        <div>drg. Bella Anastasya, Sp.Ortho</div>
-        <div>Selasa &amp; Kamis</div>
-        <div>13.00 - 20.00</div>
-      </div>
+<div class="schedule-row" data-cabang="kemang" data-spesialis="umum" data-hari="sabtu,minggu">
+  <div>drg. Kevin Wijaya</div>
+  <div>Sabtu - Minggu</div>
+  <div>11.00-15.30</div>
+</div>
 
-      <div class="schedule-row" data-cabang="kemang">
-        <div>drg. Kevin Wijaya</div>
-        <div>Sabtu - Minggu</div>
-        <div>11.00-15.30</div> 
-      </div>
+<div class="schedule-row" data-cabang="pik" data-spesialis="umum" data-hari="senin,selasa,rabu,kamis,jumat">
+  <div>drg. Kenzo Saputra</div>
+  <div>Senin - Jumat</div>
+  <div>09.30 - 17.00</div>
+</div>
 
-      <div class="schedule-row" data-cabang="pik">
-        <div>drg. Kenzo Saputra</div>
-        <div>Senin - Jumat</div>
-        <div>09.30 - 17.00</div>
-      </div>
+<div class="schedule-row" data-cabang="pik" data-spesialis="umum" data-hari="rabu,sabtu">
+  <div>drg. Sisca Salim</div>
+  <div>Rabu &amp; Sabtu</div>
+  <div>14.00 - 20.00</div>
+</div>
 
-      <div class="schedule-row" data-cabang="pik">
-        <div>drg. Sisca Salim</div>
-        <div>Rabu &amp; Sabtu</div>
-        <div>14.00 - 20.00</div>
-      </div>
-
-      <div class="schedule-row" data-cabang="pik">
-        <div>drg. Citra Wulandari</div>
-        <div>Sabtu - Minggu</div>
-        <div>10.00 - 18.00</div>
-      </div>
+<div class="schedule-row" data-cabang="pik" data-spesialis="umum" data-hari="sabtu,minggu">
+  <div>drg. Citra Wulandari</div>
+  <div>Sabtu - Minggu</div>
+  <div>10.00 - 18.00</div>
+</div>
     </div>
     </div>
 
@@ -583,12 +637,10 @@ header{
         Chat via WhatsApp
       </a>
     </div>
+    <a href= https://www.instagram.com/contact.victorstudio>
+    <img src="Instagram logo.png" alf="Instagram logo" width="40 height="40">
+    </a>
   </section>
-
-  <a href= https://www.instagram.com/contact.victorstudio>
-    <img src="Instagram logo.png" alt="Instagram logo" width="40 height="40">
-  </a>
-
   <p class="copyright">Copyright © 2026 Dental Vibe. All rights reserved.</p>
 </footer>
 
@@ -627,25 +679,31 @@ function showCabang(e){
   switchSection("cabang-section");
 }
 
-function filterJadwal(cabang, btn){
-  
-  document.querySelectorAll('.btn-secondary').forEach(b => b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
+function filterJadwal(){
 
-document.querySelectorAll('#jadwal-section .schedule-row:not(.schedule-head)').forEach(row => {
-    if(cabang === 'semua' || row.dataset.cabang === cabang){
-      row.classList.remove('hidden');
-    } else {
-      row.classList.add('hidden');
-    }
-  });
+const cabang=document.getElementById("filter-cabang").value;
+const spesialis=document.getElementById("filter-spesialis").value;
+const hari=document.getElementById("filter-hari").value;
+
+document.querySelectorAll("#jadwal-section .schedule-row:not(.schedule-head)").forEach(row=>{
+
+const cocokCabang=
+cabang==="semua" || row.dataset.cabang===cabang;
+
+const cocokSpesialis=
+spesialis==="semua" || row.dataset.spesialis===spesialis;
+
+const cocokHari=
+hari==="semua" || row.dataset.hari.includes(hari);
+
+if(cocokCabang && cocokSpesialis && cocokHari){
+row.classList.remove("hidden");
+}else{
+row.classList.add("hidden");
 }
 
-function showJadwalForCabang(e, cabang){
-  e.preventDefault();
-  switchSection('jadwal-section');
-  const targetBtn = document.querySelector('.btn-secondary[data-filter="' + cabang + '"]');
-  filterJadwal(cabang, targetBtn);
+});
+
 }
 
 // Auto-close menu di mobile setelah klik
@@ -656,4 +714,4 @@ document.querySelectorAll('#menu a').forEach(link => {
 });
 </script>
 </body>
-</html>
+  </html>
